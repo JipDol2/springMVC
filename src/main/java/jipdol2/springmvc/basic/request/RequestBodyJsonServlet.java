@@ -7,9 +7,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+
+import jipdol2.springmvc.basic.HelloData;
 import org.springframework.util.StreamUtils;
 
 import java.io.IOException;
@@ -33,11 +32,4 @@ public class RequestBodyJsonServlet extends HttpServlet {
 
         response.getWriter().write("ok");
     }
-}
-@Data
-class HelloData{
-
-    private String username;
-
-    private Integer age;
 }
