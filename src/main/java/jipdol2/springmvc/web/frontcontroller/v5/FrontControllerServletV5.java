@@ -14,6 +14,7 @@ import jipdol2.springmvc.web.frontcontroller.v4.controller.MemberFormControllerV
 import jipdol2.springmvc.web.frontcontroller.v4.controller.MemberListControllerV4;
 import jipdol2.springmvc.web.frontcontroller.v4.controller.MemberSaveControllerV4;
 import jipdol2.springmvc.web.frontcontroller.v5.adapter.ControllerV3HandlerAdapter;
+import jipdol2.springmvc.web.frontcontroller.v5.adapter.ControllerV4HandlerAdapter;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -33,10 +34,12 @@ public class FrontControllerServletV5 extends HttpServlet {
     }
 
     private void initHandlerMappingMap() {
+        //v3 추가
         handlerMappingMap.put("/front-controller/v5/v3/members/new-form", new MemberFormControllerV3());
         handlerMappingMap.put("/front-controller/v5/v3/members/save", new MemberSaveControllerV3());
         handlerMappingMap.put("/front-controller/v5/v3/members", new MemberListControllerV3());
 
+        //v4 추가
         handlerMappingMap.put("/front-controller/v5/v4/members/new-form", new MemberFormControllerV4());
         handlerMappingMap.put("/front-controller/v5/v4/members/save", new MemberSaveControllerV4());
         handlerMappingMap.put("/front-controller/v5/v4/members", new MemberListControllerV4());
@@ -44,6 +47,7 @@ public class FrontControllerServletV5 extends HttpServlet {
 
     private void initHandlerAdapters() {
         handlerAdapters.add(new ControllerV3HandlerAdapter());
+        handlerAdapters.add(new ControllerV4HandlerAdapter());
     }
 
     @Override
